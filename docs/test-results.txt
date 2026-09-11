@@ -1,0 +1,54 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.22s
+     Running unittests src/lib.rs (/workspace/scratch/4754d32c232e/omarchy-solitaire/target/debug/deps/omarchy_scram-3b6e43471aea50d6)
+
+running 36 tests
+test game::tests::contact_removes_only_one_life ... ok
+test game::tests::buffered_turn_and_wall_stop ... ok
+test game::tests::early_turn_waits_until_the_next_junction ... ok
+test game::tests::corrupt_geometry_and_nan_are_rejected ... ok
+test game::tests::extra_life_is_awarded_once_per_threshold ... ok
+test game::tests::final_death_finishes_game ... ok
+test game::tests::level_clear_repopulates_without_resetting_score ... ok
+test game::tests::power_chain_and_returning_are_safe ... ok
+test game::tests::pellet_is_collected_once ... ok
+test game::tests::reversal_preserves_position ... ok
+test game::tests::maze_is_connected_and_bounded ... ok
+test game::tests::tunnel_is_bidirectional ... ok
+test game::tests::power_expiry_restores_collision_danger ... ok
+test packs::tests::colour_key_and_existing_alpha_both_work ... ok
+test game::tests::captured_pursuer_returns_home_before_rejoining ... ok
+test packs::tests::bad_geometry_indices_schema_and_png_fail_clearly ... ok
+test packs::tests::fully_invisible_frames_are_rejected ... ok
+test packs::tests::external_pack_loads_and_missing_assets_fail ... ok
+test packs::tests::traversal_and_asset_symlink_escape_are_rejected ... ok
+test sound::tests::original_cues_have_valid_pcm_lengths ... ok
+test storage::tests::future_schema_is_preserved_before_decoding ... ok
+test storage::tests::lock_excludes_concurrent_writers ... ok
+test storage::tests::malformed_save_is_preserved ... ok
+test storage::tests::failed_restart_keeps_current_run ... ok
+test storage::tests::relaxed_scores_stay_separate ... ok
+test storage::tests::newer_version_is_never_overwritten ... ok
+test storage::tests::save_round_trip_and_archive ... ok
+test theme::tests::invalid_theme_falls_through ... ok
+test theme::tests::light_dark_and_low_contrast_themes_stay_readable ... ok
+test theme::tests::malformed_and_unicode_colors_are_rejected ... ok
+test game::tests::snapshot_continues_deterministically ... ok
+test packs::tests::exporting_twice_keeps_artist_edits ... ok
+test packs::tests::embedded_atlases_validate_and_key_without_touching_source ... ok
+test game::tests::long_random_input_stays_valid ... ok
+test app::pack_tests::legacy_save_and_missing_pack_fall_back_without_losing_run ... ok
+test app::pack_tests::switching_and_failed_switch_keep_run_and_records ... ok
+
+test result: ok. 36 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.22s
+
+     Running unittests src/main.rs (/workspace/scratch/4754d32c232e/omarchy-solitaire/target/debug/deps/omarchy_scram-88cfa2710044e789)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests omarchy_scram
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

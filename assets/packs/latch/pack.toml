@@ -1,0 +1,29 @@
+# Copy this whole folder to make another character pack. See ARTWORK-PACKS.md.
+schema = 1
+name = "Latch"
+author = "Omarchy Scram / generated with OpenAI Image Generation"
+license = "MIT"
+icon = "icon.png"
+fps = 9.0
+scale = 1.0
+normal = [0, 1, 2, 3]
+vulnerable = [4, 5, 6, 7]
+
+[player]
+image = "player.png"
+# Closed, half open, open, half open. Player artwork faces right.
+# Rectangles are [left, top, width, height] in pixels.
+frames = [[56, 304, 400, 400], [568, 304, 400, 400], [1080, 304, 400, 400], [568, 304, 400, 400]]
+key_color = "#ff00ff"
+key_tolerance = 70
+
+[pursuers]
+image = "pursuers.png"
+frames = [
+  [35, 149, 352, 352], [410, 143, 352, 352],
+  [777, 140, 352, 352], [1146, 143, 352, 352],
+  [35, 559, 352, 352], [410, 546, 352, 352],
+  [777, 538, 352, 352], [1146, 551, 352, 352],
+]
+key_color = "#ff00ff"
+key_tolerance = 70

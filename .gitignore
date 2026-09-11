@@ -1,0 +1,5 @@
+/target/
+/dist/
+/pkg/
+/src/omarchy-scram-*/
+*.pkg.tar.zst

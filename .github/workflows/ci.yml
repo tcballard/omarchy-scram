@@ -1,0 +1,54 @@
+name: Native checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: sudo apt-get update && sudo apt-get install -y libegl1-mesa-dev libgl1-mesa-dev libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libx11-dev libxi-dev libxcursor-dev libxrandr-dev xvfb desktop-file-utils
+      - run: cargo fmt --check
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo test --locked
+      - run: cargo build --locked --release
+      - run: desktop-file-validate packaging/io.github.tcballard.omarchy-scram.desktop
+      - name: Native window smoke test
+        run: |
+          xvfb-run -a env LIBGL_ALWAYS_SOFTWARE=1 target/release/omarchy-scram --state-dir /tmp/scram-check --screenshot /tmp/scram-check.png
+          test -s /tmp/scram-check.png
+          xvfb-run -a env LIBGL_ALWAYS_SOFTWARE=1 target/release/omarchy-scram --state-dir /tmp/scram-small --width 560 --height 620 --screenshot /tmp/scram-small.png
+          test -s /tmp/scram-small.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-windows
+          path: /tmp/scram-*.png
+  arch:
+    runs-on: ubuntu-latest
+    container: archlinux:base-devel
+    steps:
+      - run: pacman -Syu --noconfirm git rust libglvnd libx11 libxcursor libxi libxrandr libxkbcommon libxkbcommon-x11 wayland dbus mesa xorg-server-xvfb xorg-xauth
+      - uses: actions/checkout@v4
+      - run: |
+          useradd -m builder
+          chown -R builder:builder "$GITHUB_WORKSPACE"
+          su builder -c "cd '$GITHUB_WORKSPACE' && makepkg --noconfirm"
+      - name: Install and launch package
+        run: |
+          pacman -U --noconfirm ./*.pkg.tar.zst
+          su builder -c 'xvfb-run -a env LIBGL_ALWAYS_SOFTWARE=1 omarchy-scram --state-dir /tmp/scram-package --screenshot /tmp/scram-package.png'
+          test -s /tmp/scram-package.png
+          omarchy-scram --version
+          omarchy-munch --version
+          test -L /usr/bin/omarchy-munch
+          cp /tmp/scram-package/session.json /tmp/scram-original.json
+          pacman -U --noconfirm ./*.pkg.tar.zst
+          cmp /tmp/scram-original.json /tmp/scram-package/session.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arch-package
+          path: '*.pkg.tar.zst'

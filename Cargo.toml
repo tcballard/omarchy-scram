@@ -1,0 +1,20 @@
+[package]
+name = "omarchy-scram"
+version = "0.2.1"
+edition = "2021"
+rust-version = "1.98"
+license = "MIT"
+description = "A native maze chase for Omarchy Arcade"
+
+[dependencies]
+eframe = { version = "=0.31.1", default-features = false, features = ["default_fonts", "glow", "wayland", "x11", "accesskit"] }
+egui_extras = { version = "=0.31.1", default-features = false, features = ["svg", "image"] }
+image = { version = "0.25", default-features = false, features = ["png"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+fs2 = "0.4"
+tempfile = "3"
+
+[profile.release]
+strip = true

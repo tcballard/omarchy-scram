@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Omarchy Scram
+Comment=An original maze chase for Omarchy Arcade
+Exec=omarchy-scram
+Icon=io.github.tcballard.omarchy-scram
+Terminal=false
+Categories=Game;ArcadeGame;
+Keywords=maze;chase;retro;arcade;
+StartupNotify=true
+StartupWMClass=io.github.tcballard.omarchy-scram

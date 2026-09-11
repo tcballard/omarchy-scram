@@ -1,0 +1,24 @@
+Omarchy Scram 0.2.1 — native Linux/X11 verification
+
+PASS: portable 0.2.0 -> Scram 0.2.1 update, native Scram window, old command alias, single renamed launcher, quoted install prefix, GLib desktop parsing, default save location, custom pack retention, unchanged run/settings/high scores, shared old/new writer lock and reinstall.
+CAPTURE charcoal
+CAPTURE ivory
+CAPTURE compact
+CAPTURE help
+CAPTURE settings
+CAPTURE power
+PASS: restored game-over screen, focus loss/return, Play Again and prior-session archive.
+
+Prior 0.2.0 gameplay and pack checks:
+
+PASS: native window, direction input, scoring, Space pause, focus pause, menu pause, saved sound and quit.
+PASS: native selector Latch -> Original -> Latch -> exported custom pack, reload, failed reload, missing-pack fallback, unchanged run and scores.
+PASS: installed native launch, quoted path with spaces, GLib desktop-entry parsing, reinstall, save preservation and relaunch.
+CAPTURE charcoal
+CAPTURE ivory
+CAPTURE compact
+CAPTURE help
+CAPTURE settings
+CAPTURE power
+
+Real Omarchy Wayland, sound-server playback and makepkg/pacman remain unverified.

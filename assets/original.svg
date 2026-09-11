@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <title>Omarchy Scram</title>
+  <rect width="128" height="128" rx="24" fill="#171c1a"/>
+  <path d="M89 38 62 57 89 75A36 36 0 1 1 89 38Z" fill="#b3cb92"/>
+  <path d="M47 31h7v7h-7z" fill="#171c1a"/>
+  <path d="M93 52h8v8h-8zM109 52h7v8h-7z" fill="#b3cb92"/>
+  <g fill="#b3cb92"><path d="M92 94h7v7h-7zM102 94h7v7h-7zM92 104h7v7h-7zM102 104h7v7h-7z"/></g>
+</svg>
